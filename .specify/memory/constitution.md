@@ -1,50 +1,70 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Sync Impact Report
+<!--
+Version change: template -> 1.0.0
+
+Modified principles:
+- [PRINCIPLE_1_NAME] Template -> I. Legibilidade e Clareza (Clean Code)
+- [PRINCIPLE_2_NAME] Template -> II. Princípios SOLID
+- [PRINCIPLE_3_NAME] Template -> III. Testes e Qualidade (TDD recomendado)
+- [PRINCIPLE_4_NAME] Template -> IV. Simplicidade e Experiência do Usuário
+- [PRINCIPLE_5_NAME] Template -> V. Observabilidade e Manutenibilidade
+
+Added sections:
+- Restrições Técnicas (substitui SECTION_2_NAME)
+- Fluxo de Desenvolvimento (substitui SECTION_3_NAME)
+
+Removed sections: none
+
+Templates checked:
+- .specify/templates/plan-template.md: ✅ aligned (uses "Constitution Check")
+- .specify/templates/spec-template.md: ✅ aligned
+- .specify/templates/tasks-template.md: ✅ aligned
+- .specify/templates/constitution-template.md: ✅ used to generate this file
+
+Follow-up TODOs:
+- None
+-->
+
+# tcc-ads Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Legibilidade e Clareza (Clean Code)
+Código deve ser legível por humanos. Nomes de variáveis, funções e classes DEVEM ser descritivos; funções DEVEM ser pequenas e com uma única responsabilidade; comentários SÓ são permitidos quando explicam "porquê", não "o quê"; duplicação DEVEM ser evitada (DRY). Racional: a clareza reduz custo de manutenção e facilita revisão.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Princípios SOLID
+- Single Responsibility (SRP): cada módulo/classe DEVEM ter uma responsabilidade única e bem definida.
+- Open/Closed (OCP): componentes DEVEM ser abertos para extensão e fechados para modificação.
+- Liskov Substitution (LSP): substituição por subtipos NÃO deve quebrar expectativas do cliente.
+- Interface Segregation (ISP): interfaces DEVEM ser específicas ao cliente, evitando interfaces "gordas".
+- Dependency Inversion (DIP): módulos de alto nível NÃO DEVEM depender de módulos de baixo nível; ambos DEVEM depender de abstrações.
+Racional: SOLID mantém o design flexível e testável.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Testes e Qualidade (TDD recomendado)
+Testes automatizados DEVEM existir para funcionalidades críticas. Para cada nova função pública ou comportamento: escrever testes que falhem primeiro (recomendado TDD), depois implementar e refatorar. Cobertura mínima orientadora: unidades para regras de negócio, contratos para integrações e testes de aceitação para jornadas principais. Todas as PRs DEVEM passar CI com lint + testes.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Simplicidade e Experiência do Usuário
+O produto/dev API DEVEM ser simples de usar: minimizar superfície pública, fornecer padrões sensatos (convenções e valores padrão), mensagens de erro úteis e documentação mínima adequada (quickstart). Evitar otimizações prematuras e complexidade desnecessária (YAGNI). Racional: usuário final e integradores valorizam previsibilidade e facilidade.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Observabilidade e Manutenibilidade
+Instrumentação básica DEVEM existir: logs estruturados, métricas chave e rastreamento quando aplicável. Erros DEVEM ser detectáveis e acionáveis. Versionamento semântico DEVEM ser usado para releases (MAJOR.MINOR.PATCH) e quebrantes SÓ ocorrem em MAJOR com migração documentada.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Restrições Técnicas
+- Padronizar formatação e qualidade: adotar linter e formatter (ex.: ESLint/Prettier, black/flake8, rustfmt/clippy conforme tecnologia).
+- CI DEVEM rodar lint, testes e checks de segurança antes de merge.
+- Dependências externas DEVEM ser justificadas em PR e atualizadas periodicamente.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Fluxo de Desenvolvimento
+- Branches: `main` para releases, `develop` ou ramas por feature com prefixo `feat/` ou `fix/`.
+- Pull Requests DEVEM ter descrição clara, critérios de aceitação e referência a `spec.md`/`plan.md` quando aplicável.
+- Revisão: mínimo 1 approver para mudanças triviais, 2 approvers para mudanças de design ou dependências.
+- Commits DEVEM ser atômicos e com mensagens claras (ex.: `feat: adicionar validação de CPF`).
+- Gate: A etapa "Constitution Check" no `plan-template.md` é obrigatória antes de prosseguir para implementação.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+Emendas à Constituição DEVEM seguir o processo: 1) abrir PR explicando a mudança e impacto; 2) incluírem um plano de migração se houver breaking changes; 3) aprovação por pelo menos dois mantenedores; 4) documentação atualizada. Versão segue SemVer:
+- MAJOR: remoção ou redefinição incompatível de princípios/governança.
+- MINOR: adição de princípios ou expansão material.
+- PATCH: clarificações, correções de texto e ajustes não estruturais.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-06-14 | **Last Amended**: 2026-06-14
