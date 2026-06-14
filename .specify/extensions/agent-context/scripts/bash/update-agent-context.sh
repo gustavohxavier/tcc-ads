@@ -84,6 +84,7 @@ fi
 
 _opts_lines=()
 while IFS= read -r _line || [[ -n "$_line" ]]; do
+  _line="${_line%$'\r'}"
   _opts_lines+=("$_line")
 done < <(printf '%s\n' "$_raw_opts")
 if (( ${#_opts_lines[@]} < 3 )); then
