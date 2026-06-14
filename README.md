@@ -2,102 +2,102 @@
 
 Repositório do projeto de conclusão de curso ADS (Análise e Desenvolvimento de Sistemas).
 
-## Features
+## Recursos
 
-- **iptables-dragdrop**: A cross-platform Java/JavaFX desktop application for building `iptables` firewall rules using drag-and-drop
-  - Drag-and-drop rule builder with real-time preview
-  - Advanced filtering by action, protocol, port, or IP
-  - Export to `.sh` file or clipboard
-  - Input validation and duplicate detection
+- **iptables-dragdrop**: Uma aplicação desktop Java/JavaFX multiplataforma para construir regras de firewall `iptables` usando drag-and-drop
+  - Construtor de regras com drag-and-drop e pré-visualização em tempo real
+  - Filtragem avançada por ação, protocolo, porta ou IP
+  - Exportação para arquivo `.sh` ou área de transferência
+  - Validação de entrada e detecção de duplicatas
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 specs/
 ├── 001-iptables-dragdrop/
-│   ├── spec.md                 # Feature specification
-│   ├── plan.md                 # Implementation plan
-│   ├── data-model.md           # Data model and entities
-│   ├── contracts/              # API/export contracts
-│   ├── research.md             # Technical research and decisions
-│   ├── quickstart.md           # User quickstart guide
-│   ├── tasks.md                # Implementation task breakdown
-│   └── checklists/             # Quality checklists
+│   ├── spec.md                 # Especificação do recurso
+│   ├── plan.md                 # Plano de implementação
+│   ├── data-model.md           # Modelo de dados e entidades
+│   ├── contracts/              # Contratos de API/exportação
+│   ├── research.md             # Pesquisa técnica e decisões
+│   ├── quickstart.md           # Guia de início rápido
+│   ├── tasks.md                # Detalhamento das tarefas de implementação
+│   └── checklists/             # Checklists de qualidade
 src/
 ├── main/java/app/
-│   ├── Main.java               # Application entry point
-│   ├── model/                  # Domain entities (Rule, RuleSet)
-│   ├── service/                # Business logic (Validator, Generator)
-│   └── ui/                     # JavaFX views
-└── test/java/app/              # Unit tests
+│   ├── Main.java               # Ponto de entrada da aplicação
+│   ├── model/                  # Entidades de domínio (Rule, RuleSet)
+│   ├── service/                # Lógica de negócio (Validator, Generator)
+│   └── ui/                     # Visualizações JavaFX
+└── test/java/app/              # Testes unitários
 ```
 
-## Requirements
+## Requisitos
 
-- **Java 21+** (Java 17+ minimum)
+- **Java 21+** (Java 17+ mínimo)
 - **JavaFX 21.0.0+**
 - **Gradle 8.0+**
 
-## Building and Running
+## Compilando e Executando
 
-### Prerequisites
+### Pré-requisitos
 
 ```bash
-# Verify Java is installed
+# Verifique se Java está instalado
 java -version
 
-# Install Gradle (macOS with Homebrew)
+# Instale Gradle (macOS com Homebrew)
 brew install gradle
 
-# Or via your system package manager
+# Ou via gerenciador de pacotes do seu sistema
 ```
 
-### Build Commands
+### Comandos de Compilação
 
 ```bash
-# Build the project
+# Compilar o projeto
 gradle build
 
-# Run the application
+# Executar a aplicação
 gradle run
 
-# Run tests
+# Executar testes
 gradle test
 
-# Clean build artifacts
+# Limpar artefatos de compilação
 gradle clean
 ```
 
-## Code Status
+## Status do Código
 
-### ✅ Completed
+### ✅ Concluído
 
-- [x] Project setup with Gradle and JavaFX dependencies
-- [x] Core domain model: `Rule` and `RuleSet` classes
-- [x] Business logic: `RuleValidator` and `IptablesScriptGenerator`
-- [x] Rule builder UI with drag-and-drop creation
-- [x] Preview pane with filtering controls
-- [x] Export dialog with clipboard and file save
-- [x] Reorder and remove rule operations
-- [x] Unit tests for model and service layers
+- [x] Configuração do projeto com Gradle e dependências JavaFX
+- [x] Modelo de domínio principal: classes `Rule` e `RuleSet`
+- [x] Lógica de negócio: `RuleValidator` e `IptablesScriptGenerator`
+- [x] UI do construtor de regras com criação drag-and-drop
+- [x] Painel de pré-visualização com controles de filtragem
+- [x] Diálogo de exportação com cópia para área de transferência e salvamento em arquivo
+- [x] Operações de reordenação e remoção de regras
+- [x] Testes unitários para camadas de modelo e serviço
 
-### ⏳ In Progress
+### ⏳ Em Progresso
 
-- Documentation and quickstart examples
-- SOLID refactoring and code review
-- Full test suite execution via Gradle
-- JavaFX compilation with proper module setup
+- Documentação e exemplos de início rápido
+- Refatoração SOLID e revisão de código
+- Execução completa da suíte de testes via Gradle
+- Compilação JavaFX com configuração adequada de módulos
 
-## Implementation Notes
+## Notas de Implementação
 
-- Follows the project [constitution](`.specify/memory/constitution.md`) for clean code and SOLID principles
-- All business logic is independent of UI framework
-- Rules are stored in memory; export to files for persistence
-- Generated scripts use `iptables` filter table only; no NAT/mangle/raw tables
+- Segue a [constituição](`.specify/memory/constitution.md`) do projeto para código limpo e princípios SOLID
+- Toda lógica de negócio é independente do framework de UI
+- Regras são armazenadas em memória; exporte para arquivos para persistência
+- Scripts gerados usam apenas a tabela `filter` do `iptables`; sem tabelas NAT/mangle/raw
 
-## Related Documentation
+## Documentação Relacionada
 
-- **Feature Spec**: [specs/001-iptables-dragdrop/spec.md](specs/001-iptables-dragdrop/spec.md)
-- **Implementation Plan**: [specs/001-iptables-dragdrop/plan.md](specs/001-iptables-dragdrop/plan.md)
-- **Data Model**: [specs/001-iptables-dragdrop/data-model.md](specs/001-iptables-dragdrop/data-model.md)
-- **Export Contract**: [specs/001-iptables-dragdrop/contracts/iptables-export-contract.md](specs/001-iptables-dragdrop/contracts/iptables-export-contract.md)
+- **Especificação do Recurso**: [specs/001-iptables-dragdrop/spec.md](specs/001-iptables-dragdrop/spec.md)
+- **Plano de Implementação**: [specs/001-iptables-dragdrop/plan.md](specs/001-iptables-dragdrop/plan.md)
+- **Modelo de Dados**: [specs/001-iptables-dragdrop/data-model.md](specs/001-iptables-dragdrop/data-model.md)
+- **Contrato de Exportação**: [specs/001-iptables-dragdrop/contracts/iptables-export-contract.md](specs/001-iptables-dragdrop/contracts/iptables-export-contract.md)
