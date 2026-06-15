@@ -14,7 +14,7 @@ public class Main extends Application {
         RuleBuilderView builderView = new RuleBuilderView();
         RulePreviewView previewView = new RulePreviewView(builderView.getRuleSet());
 
-        builderView.setOnRuleSetChanged(previewView::refreshPreview);
+        builderView.setOnRuleSetChanged(rs -> previewView.refreshPreview());
 
         BorderPane root = new BorderPane();
         root.setLeft(builderView);
