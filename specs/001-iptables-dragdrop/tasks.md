@@ -40,7 +40,7 @@
 - [x] T014 [US1] Implement rule creation logic in `src/main/java/app/ui/RuleBuilderView.java` that builds `Rule` objects from the UI and inserts them into `RuleSet`
 - [x] T015 [US1] Implement `RulePreviewView.java` in `src/main/java/app/ui/RulePreviewView.java` to display formatted rule summaries and a rule counter
 - [x] T016 [US1] Implement the "Gerar script" action in `src/main/java/app/ui/RulePreviewView.java` or `ExportDialog.java` to show generated script text from `IptablesScriptGenerator`
-- [ ] T017 [US1] Add a manual verification task in `specs/001-iptables-dragdrop/quickstart.md` for creating a simple SSH accept rule and validating the generated `iptables` command
+ - [x] T017 [US1] Add a manual verification task in `specs/001-iptables-dragdrop/quickstart.md` for creating a simple SSH accept rule and validating the generated `iptables` command
 
 ---
 
@@ -53,7 +53,7 @@
 - [x] T018 [US2] Implement drag-and-drop reorder support in `src/main/java/app/ui/RuleBuilderView.java` or the rule list component
 - [x] T019 [US2] Implement edit and remove actions in `src/main/java/app/ui/RuleBuilderView.java` with updates to the underlying `RuleSet`
 - [x] T020 [US2] Ensure `RulePreviewView.java` and `IptablesScriptGenerator.java` respect the updated rule order after reordering
-- [ ] T021 [US2] Add a manual independent test note in `specs/001-iptables-dragdrop/quickstart.md` for reorder behavior and script order verification
+ - [x] T021 [US2] Add a manual independent test note in `specs/001-iptables-dragdrop/quickstart.md` for reorder behavior and script order verification
 
 ---
 
@@ -66,7 +66,7 @@
 - [x] T022 [US3] Implement filter controls in `src/main/java/app/ui/RulePreviewView.java` for action, protocol, port, and IP criteria
 - [x] T023 [US3] Implement preview filtering logic in `src/main/java/app/model/RuleSet.java` or a dedicated preview helper class
 - [x] T024 [US3] Ensure the filtered preview state is shown as `regrasFiltradas` and does not modify the canonical rule order used by script export
-- [ ] T025 [US3] Add a manual independent test note in `specs/001-iptables-dragdrop/quickstart.md` for filter behavior and preview validation
+ - [x] T025 [US3] Add a manual independent test note in `specs/001-iptables-dragdrop/quickstart.md` for filter behavior and preview validation
 
 ---
 
@@ -77,7 +77,7 @@
 - [x] T026 [P] Implement `.sh` export and clipboard copy support in `src/main/java/app/ui/ExportDialog.java`
 - [x] T027 [P] Ensure the generator only uses `iptables` `filter` table commands and rejects any NAT/mangle/raw rules in `src/main/java/app/service/IptablesScriptGenerator.java`
 - [x] T028 [P] Implement validation error messages in `src/main/java/app/ui/RuleBuilderView.java` and ensure invalid rules cannot be exported
-- [ ] T029 [P] Update `specs/001-iptables-dragdrop/quickstart.md` with explicit validation and export verification steps
+ - [x] T029 [P] Update `specs/001-iptables-dragdrop/quickstart.md` with explicit validation and export verification steps
 - [ ] T030 [P] Refactor code for SOLID separation between UI, model, service, and export layers in `src/main/java/app/`
 - [ ] T031 [P] Apply formatting and code quality checks across source and test files
 
