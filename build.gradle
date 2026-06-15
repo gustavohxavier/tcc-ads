@@ -9,12 +9,12 @@ repositories {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
 javafx {
-    version = '21.0.0'
+    version = '20.0.1'
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
@@ -24,6 +24,7 @@ application {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
